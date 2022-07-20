@@ -26,14 +26,6 @@ app.use(requestLogger);
 
 app.use(require('./middlewares/cors'));
 
-app.get('/api/test123', (req, res) => {
-  res.end('Hello 1 with api');
-});
-
-app.get('/test123', (req, res) => {
-  res.end('Hello 2 without api');
-});
-
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
@@ -61,11 +53,11 @@ app.use(require('./middlewares/auth'));
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
 
-app.use(errorLogger);
-
 app.use((req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 

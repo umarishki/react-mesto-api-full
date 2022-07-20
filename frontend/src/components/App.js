@@ -15,7 +15,6 @@ import Register from './Register';
 import Login from './Login';
 import Footer from './Footer';
 import InfoTooltip from './InfoTooltip';
-// import * as auth from '../utils/auth.js';
 
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -125,7 +124,7 @@ function App() {
 
     function handleCardLike(card) {
         const isLiked = card.likes.some(i => i === currentUser._id);
-        
+
         api.changeLikeCardStatus(card._id, isLiked)
             .then((newCard) => {
                 setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -197,9 +196,6 @@ function App() {
                     localStorage.setItem('token', res);
                     setIsLoading(true)
                     tokenCheck();
-                    setIsOperationSuccessful(true);
-                    setMessage('Вы успешно авторизовались!');
-                    handleInfoTooltipOpen();
                 }
             })
             .catch(() => {
