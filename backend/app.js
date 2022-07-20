@@ -26,11 +26,19 @@ app.use(requestLogger);
 
 app.use(require('./middlewares/cors'));
 
-// app.get('/crash-test', () => {
-//   setTimeout(() => {
-//     throw new Error('Сервер сейчас упадёт');
-//   }, 0);
-// });
+app.get('/api/test123', (req, res) => {
+  res.end('Hello 1 with api');
+});
+
+app.get('/test123', (req, res) => {
+  res.end('Hello 2 without api');
+});
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({

@@ -122,7 +122,7 @@ export class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: 'http://umarishki.mesto-front.nomoredomains.xyz/api/',
     headers: {
         'Content-Type': 'application/json'
     }
