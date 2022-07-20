@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 app.use(requestLogger);
 app.use((req, res, next) => {
-  console.log(req.path);
+  console.log(`${req.method} ${req.path}`);
   next();
 });
 
