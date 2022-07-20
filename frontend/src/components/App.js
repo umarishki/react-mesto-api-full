@@ -235,6 +235,7 @@ function App() {
 
     const handleLogOut = () => {
         localStorage.removeItem('token');
+        setIsLoading(false);
         setLoggedIn(false);
         setUserData(null);
         history.push('/sign-in');
