@@ -197,8 +197,8 @@ function App() {
     const handleLogin = ({ password, email }) => {
         return api.postUserAuth({ password, email })
             .then((res) => {
-                if (res.data) {
-                    localStorage.setItem('token', res.data);
+                if (res) {
+                    localStorage.setItem('token', res);
                     setIsLoading(true)
                     tokenCheck();
                     setIsOperationSuccessful(true);

@@ -127,3 +127,5 @@ export const api = new Api({
         'Content-Type': 'application/json'
     }
 });
+
+// http://umarishki.mesto-front.nomoredomains.xyz/api/

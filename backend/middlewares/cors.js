@@ -1,6 +1,7 @@
 module.exports = (req, res, next) => {
   const allowedCors = [
     'http://localhost:3000',
+    'http://localhost:3001',
     'http://umarishki.mesto-front.nomoredomains.xyz',
   ];
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
