@@ -23,6 +23,10 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 app.use(bodyParser.json());
 
 app.use(requestLogger);
+app.use((req, res, next) => {
+  console.log(req.path);
+  next();
+});
 
 app.use(require('./middlewares/cors'));
 
