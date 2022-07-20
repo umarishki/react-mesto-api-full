@@ -1,0 +1,22 @@
+.popup__preview-container {
+    max-width: 75vw;
+    max-height: 75vh;
+    height: auto;
+    width: auto;
+    font-size: 0px;
+    background: white;
+    z-index: 2;
+    position: relative;
+}
+
+@media screen and (max-width: 1279px) {
+    .popup__preview-container {
+        max-width: 540px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .popup__preview-container {
+        max-width: 240px;
+    }
+}

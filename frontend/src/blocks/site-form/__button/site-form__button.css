@@ -1,0 +1,16 @@
+.site-form__button {
+    width: 358px;
+    height: 50px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    margin-top: 186px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}

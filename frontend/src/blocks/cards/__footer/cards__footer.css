@@ -1,0 +1,9 @@
+.cards__footer {
+    max-width: 246px;
+    min-height: 23px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 20px;
+    align-items: center;
+}

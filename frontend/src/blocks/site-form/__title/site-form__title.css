@@ -1,0 +1,21 @@
+.site-form__title {
+    width: 358px;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+/* @media screen and (max-width: 767px) {
+    .site-form__title {
+        width: 238px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+} */

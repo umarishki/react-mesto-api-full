@@ -1,0 +1,7 @@
+.header__content {
+    display: flex;
+    max-width: 221px;
+    min-height: 33px;
+    align-items: center;
+    justify-content: flex-end;
+}
