@@ -16,7 +16,7 @@ export class Api {
             headers: this._headers,
             body: dataObj ? JSON.stringify(dataObj) : undefined
         })
-            .then(res => res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}: ${res.statusText}`))
+            .then(res => res.ok ? res.json() : Promise.reject({status: res.status, message: `Ошибка ${res.status}: ${res.statusText}`}))
             .then(res => res.data)
     }
 
@@ -127,3 +127,4 @@ export const api = new Api({
         'Content-Type': 'application/json'
     }
 });
+

@@ -46,7 +46,7 @@ function App() {
         if (loggedIn) {
             history.push("/");
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loggedIn]);
 
     useEffect(() => {
@@ -57,7 +57,7 @@ function App() {
                     setCards(cards);
                 })
                 .catch((err) => {
-                    console.log(err);
+                    handleBadTokenLogOut(err);
                 });
         }
     }, [loggedIn]);
@@ -69,7 +69,7 @@ function App() {
                 setCurrentUser(userInfo);
             })
             .catch((err) => {
-                console.log(err);
+                handleBadTokenLogOut(err);
             })
             .finally(() => {
                 setButtonTitle(initialButtonTitleValue);
@@ -84,7 +84,7 @@ function App() {
                 setCurrentUser(userInfo);
             })
             .catch((err) => {
-                console.log(err);
+                handleBadTokenLogOut(err)
             })
             .finally(() => {
                 setButtonTitle(initialButtonTitleValue);
@@ -99,7 +99,7 @@ function App() {
                 setCards([newCard, ...cards]);
             })
             .catch((err) => {
-                console.log(err);
+                handleBadTokenLogOut(err)
             })
             .finally(() => {
                 setButtonTitle(initialButtonTitleValue);
@@ -114,7 +114,7 @@ function App() {
                 setCards((state) => state.filter((c) => c._id !== card._id));
             })
             .catch((err) => {
-                console.log(err);
+                handleBadTokenLogOut(err)
             })
             .finally(() => {
                 setButtonTitle(initialButtonTitleValue);
@@ -130,7 +130,7 @@ function App() {
                 setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
             })
             .catch((err) => {
-                console.log(err);
+                handleBadTokenLogOut(err)
             });
     }
 
@@ -182,7 +182,9 @@ function App() {
                         setIsLoading(false);
                     }
                 })
-                .catch((err) => console.log(err));
+                .catch((err) => {
+                    handleBadTokenLogOut(err)
+                });
         }
         else {
             setIsLoading(false);
@@ -194,11 +196,12 @@ function App() {
             .then((res) => {
                 if (res) {
                     localStorage.setItem('token', res);
-                    setIsLoading(true)
+                    setIsLoading(true);
                     tokenCheck();
                 }
             })
-            .catch(() => {
+            .catch((err) => {
+                console.log(err.message);
                 setIsOperationSuccessful(false);
                 setMessage('Что-то пошло не так! Попробуйте ещё раз.');
                 handleInfoTooltipOpen();
@@ -215,11 +218,19 @@ function App() {
                     history.push('/sign-in');
                 }
             })
-            .catch(() => {
+            .catch((err) => {
+                console.log(err.message);
                 setIsOperationSuccessful(false);
                 setMessage('Что-то пошло не так! Попробуйте ещё раз.');
                 handleInfoTooltipOpen();
             });;
+    }
+
+    const handleBadTokenLogOut = (err) => {
+        console.log(err.message);
+        if (err.status === 401) {
+            handleLogOut();
+        }
     }
 
     const handleLogOut = () => {
@@ -229,7 +240,7 @@ function App() {
         history.push('/sign-in');
     }
 
-    if(isLoading) {
+    if (isLoading) {
         return <></>
     }
 
