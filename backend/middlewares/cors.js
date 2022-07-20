@@ -3,7 +3,7 @@ module.exports = (req, res, next) => {
     'http://localhost:3000',
     'http://localhost:3001',
     'http://umarishki.mesto-front.nomoredomains.xyz',
-    'http://api.umarishki.mesto-front.nomoredomains.xyz',
+    'https://umarishki.mesto-front.nomoredomains.xyz',
   ];
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
